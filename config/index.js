@@ -1,6 +1,10 @@
 // We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
 
+// ADD CORS REQUIRE AT THE BEGINNING OF THE FILE
+const cors = require('cors'); // <== has to be added
+ 
+
 // ℹ️ Responsible for the messages you see in the terminal as requests are coming in
 // https://www.npmjs.com/package/morgan
 const logger = require("morgan");
@@ -19,6 +23,14 @@ const path = require("path");
 
 // Middleware configuration
 module.exports = (app) => {
+
+  app.use(
+    cors({
+      credentials: true,
+      origin: ['http://localhost:3000'] // <== this will be the URL of our React app (it will be running on port 3000)
+    })
+  );
+
   // In development environment the app logs
   app.use(logger("dev"));
 

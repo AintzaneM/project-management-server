@@ -3,7 +3,6 @@ const express = require("express");
 
 // ADD CORS REQUIRE AT THE BEGINNING OF THE FILE
 const cors = require('cors'); // <== has to be added
- 
 
 // ℹ️ Responsible for the messages you see in the terminal as requests are coming in
 // https://www.npmjs.com/package/morgan
